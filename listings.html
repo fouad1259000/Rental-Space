@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Listings - Rental Space</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        :root {
+            --primary: #2C3E50;
+            --secondary: #8FBC8F;
+            --accent: #CD853F;
+        }
+        
+        .property-card {
+            transition: all 0.3s ease;
+        }
+        
+        .property-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold gradient-text" style="font-family: 'Playfair Display', serif;">Rental Space</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Home</a>
+                        <a href="listings.html" class="text-blue-600 border-b-2 border-blue-600 px-3 py-2 text-sm font-medium">Properties</a>
+                        <a href="dashboard.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Dashboard</a>
+                        <a href="#" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium" onclick="showLogin()">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="bg-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4" style="font-family: 'Playfair Display', serif;">Property Listings</h1>
+            <p class="text-gray-600">Find your perfect rental from our extensive collection</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Filters -->
+                <div class="lg:w-1/4">
+                    <div class="bg-white rounded-lg shadow-md p-6 sticky top-4">
+                        <h3 class="text-xl font-semibold mb-6">Filters</h3>
+                        
+                        <div class="space-y-6">
+                            <!-- Price Range -->
+                            <div>
+                                <h4 class="font-medium mb-3">Price Range</h4>
+                                <div class="space-y-2">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-2"> $0 - $1,000
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-2"> $1,000 - $2,000
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-2"> $2,000 - $5,000
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- Property Type -->
+                            <div>
+                                <h4 class="font-medium mb-3">Property Type</h4>
+                                <div class="space-y-2">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-2"> 🏢 Apartment
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-2"> 🏠 House
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-2"> 🏙️ Condo
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- Bedrooms -->
+                            <div>
+                                <h4 class="font-medium mb-3">Bedrooms</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <button class="px-3 py-2 border rounded-lg hover:bg-gray-50">Any</button>
+                                    <button class="px-3 py-2 border rounded-lg hover:bg-gray-50">1+</button>
+                                    <button class="px-3 py-2 border rounded-lg hover:bg-gray-50">2+</button>
+                                    <button class="px-3 py-2 border rounded-lg hover:bg-gray-50">3+</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="w-full btn-primary text-white py-3 rounded-lg font-semibold mt-6">
+                            Apply Filters
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Properties Grid -->
+                <div class="lg:w-3/4">
+                    <div class="mb-6 flex justify-between items-center">
+                        <p class="text-gray-600">Showing <span id="results-count">12</span> properties</p>
+                        <select class="px-4 py-2 border rounded-lg">
+                            <option>Sort by: Newest</option>
+                            <option>Price: Low to High</option>
+                            <option>Price: High to Low</option>
+                        </select>
+                    </div>
+                    
+                    <div id="properties-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+                        <!-- Properties loaded by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold mb-4" style="font-family: 'Playfair Display', serif;">Rental Space</h3>
+                <p class="text-gray-400 mb-6">Your trusted rental marketplace</p>
+                <div class="border-t border-gray-700 pt-6">
+                    <p class="text-gray-400">&copy; 2024 Rental Space. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
