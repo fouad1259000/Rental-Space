@@ -19,7 +19,12 @@
         }
         
         .page-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1973&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             min-height: 100vh;
         }
         
@@ -34,6 +39,27 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             font-weight: 700;
+        }
+        
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            text-shadow: 
+                2px 2px 4px rgba(0, 0, 0, 0.8),
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
+            color: white;
+        }
+        
+        .hero-subtitle {
+            text-shadow: 
+                1px 1px 2px rgba(0, 0, 0, 0.8),
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
+            color: white;
         }
         
         .content-card {
@@ -81,22 +107,24 @@
         </div>
     </nav>
 
-    <!-- Dashboard Header -->
-    <section class="pt-24 pb-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center text-white">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4" style="font-family: 'Playfair Display', serif;">Owner Dashboard</h1>
-                <p class="text-xl opacity-90">Manage your properties and track performance</p>
-            </div>
+    <!-- Hero Section -->
+    <section class="min-h-[50vh] flex items-center justify-center pt-16 text-white">
+        <div class="text-center px-4 max-w-6xl mx-auto">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 hero-title">
+                Owner Dashboard
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto hero-subtitle">
+                Manage your properties and track performance with our comprehensive dashboard
+            </p>
         </div>
     </section>
 
     <!-- Dashboard Content -->
-    <section class="pb-20">
+    <section class="pb-20 -mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Stats Cards -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                <div class="dashboard-card content-card rounded-2xl p-6 border border-white/20">
+                <div class="dashboard-card content-card rounded-2xl p-6 border border-white/20 shadow-2xl">
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-sm text-gray-600">Total Properties</p>
@@ -105,7 +133,7 @@
                         <div class="text-2xl">🏠</div>
                     </div>
                 </div>
-                <div class="dashboard-card content-card rounded-2xl p-6 border border-white/20">
+                <div class="dashboard-card content-card rounded-2xl p-6 border border-white/20 shadow-2xl">
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-sm text-gray-600">Active Listings</p>
@@ -114,7 +142,7 @@
                         <div class="text-2xl">✅</div>
                     </div>
                 </div>
-                <div class="dashboard-card content-card rounded-2xl p-6 border border-white/20">
+                <div class="dashboard-card content-card rounded-2xl p-6 border border-white/20 shadow-2xl">
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-sm text-gray-600">Monthly Views</p>
@@ -123,7 +151,7 @@
                         <div class="text-2xl">👁️</div>
                     </div>
                 </div>
-                <div class="dashboard-card content-card rounded-2xl p-6 border border-white/20">
+                <div class="dashboard-card content-card rounded-2xl p-6 border border-white/20 shadow-2xl">
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-sm text-gray-600">Monthly Earnings</p>
@@ -135,7 +163,7 @@
             </div>
 
             <!-- Properties Table -->
-            <div class="content-card rounded-2xl border border-white/20 overflow-hidden">
+            <div class="content-card rounded-2xl border border-white/20 overflow-hidden shadow-2xl">
                 <div class="px-6 py-4 border-b border-gray-200">
                     <div class="flex justify-between items-center">
                         <h3 class="text-xl font-semibold text-gray-900">My Properties</h3>
