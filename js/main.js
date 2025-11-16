@@ -88,6 +88,9 @@ document.addEventListener('DOMContentLoaded', function() {
         case 'dashboard':
             // Dashboard specific initialization
             break;
+        case 'login':
+            // Login page has its own script
+            break;
     }
 });
 
@@ -95,6 +98,7 @@ function getCurrentPage() {
     const path = window.location.pathname;
     if (path.includes('listings.html')) return 'listings';
     if (path.includes('dashboard.html')) return 'dashboard';
+    if (path.includes('login.html')) return 'login';
     return 'index';
 }
 
@@ -129,7 +133,7 @@ function loadAllProperties() {
     
     if (container) {
         container.innerHTML = properties.map(property => `
-            <div class="property-card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="viewProperty(${property.id})">
+            <div class="property-card content-card rounded-2xl overflow-hidden cursor-pointer border border-white/20" onclick="viewProperty(${property.id})">
                 <img src="${property.image}" alt="${property.title}" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <h3 class="text-xl font-semibold text-gray-900 mb-2">${property.title}</h3>
@@ -175,15 +179,6 @@ function animateStats() {
 }
 
 // Navigation functions
-function showLogin() {
-    alert('Login functionality would appear here');
-}
-
-function logout() {
-    alert('You have been logged out');
-    window.location.href = 'index.html';
-}
-
 function viewProperty(propertyId) {
     alert(`Viewing property ${propertyId} - This would open the property details page`);
     // window.location.href = `property.html?id=${propertyId}`;
