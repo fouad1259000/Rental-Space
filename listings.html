@@ -19,7 +19,12 @@
         }
         
         .page-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1973&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             min-height: 100vh;
         }
         
@@ -34,6 +39,27 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             font-weight: 700;
+        }
+        
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            text-shadow: 
+                2px 2px 4px rgba(0, 0, 0, 0.8),
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
+            color: white;
+        }
+        
+        .hero-subtitle {
+            text-shadow: 
+                1px 1px 2px rgba(0, 0, 0, 0.8),
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
+            color: white;
         }
         
         .content-card {
@@ -91,23 +117,25 @@
         </div>
     </nav>
 
-    <!-- Header -->
-    <section class="pt-24 pb-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center text-white">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4" style="font-family: 'Playfair Display', serif;">Property Listings</h1>
-                <p class="text-xl opacity-90">Find your perfect rental from our extensive collection</p>
-            </div>
+    <!-- Hero Section -->
+    <section class="min-h-[60vh] flex items-center justify-center pt-16 text-white">
+        <div class="text-center px-4 max-w-6xl mx-auto">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 hero-title">
+                Property Listings
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto hero-subtitle">
+                Find your perfect rental from our extensive collection of premium properties
+            </p>
         </div>
     </section>
 
     <!-- Main Content -->
-    <section class="pb-20">
+    <section class="pb-20 -mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row gap-8">
                 <!-- Filters -->
                 <div class="lg:w-1/4">
-                    <div class="content-card rounded-2xl p-6 sticky top-24 border border-white/20">
+                    <div class="content-card rounded-2xl p-6 sticky top-24 border border-white/20 shadow-2xl">
                         <h3 class="text-xl font-semibold mb-6 text-gray-900">Filters</h3>
                         
                         <div class="space-y-6">
@@ -163,7 +191,7 @@
                 
                 <!-- Properties Grid -->
                 <div class="lg:w-3/4">
-                    <div class="content-card rounded-2xl p-6 mb-6 border border-white/20">
+                    <div class="content-card rounded-2xl p-6 mb-6 border border-white/20 shadow-2xl">
                         <div class="flex justify-between items-center">
                             <p class="text-gray-700">Showing <span id="results-count" class="font-semibold">12</span> properties</p>
                             <select class="px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-700">
