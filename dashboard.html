@@ -18,6 +18,21 @@
             --accent: #CD853F;
         }
         
+        .page-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .content-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+        }
+        
         .dashboard-card {
             transition: all 0.3s ease;
         }
@@ -38,20 +53,20 @@
         }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="page-bg">
     <!-- Navigation -->
-    <nav class="bg-white shadow-lg">
+    <nav class="fixed top-0 w-full z-50 glass-effect border-b border-white/20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
-                    <h1 class="text-2xl font-bold gradient-text" style="font-family: 'Playfair Display', serif;">Rental Space</h1>
+                    <h1 class="text-2xl font-bold text-white" style="font-family: 'Playfair Display', serif;">Rental Space</h1>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="index.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Home</a>
-                        <a href="listings.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Properties</a>
-                        <a href="dashboard.html" class="text-blue-600 border-b-2 border-blue-600 px-3 py-2 text-sm font-medium">Dashboard</a>
-                        <a href="#" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium" onclick="logout()">Logout</a>
+                        <a href="index.html" class="text-white hover:text-gray-200 px-3 py-2 text-sm font-medium">Home</a>
+                        <a href="listings.html" class="text-white hover:text-gray-200 px-3 py-2 text-sm font-medium">Properties</a>
+                        <a href="dashboard.html" class="text-white hover:text-gray-200 px-3 py-2 text-sm font-medium border-b-2 border-white">Dashboard</a>
+                        <a href="login.html" class="text-white hover:text-gray-200 px-3 py-2 text-sm font-medium">Login</a>
                     </div>
                 </div>
             </div>
@@ -59,26 +74,21 @@
     </nav>
 
     <!-- Dashboard Header -->
-    <section class="bg-white py-12">
+    <section class="pt-24 pb-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center">
-                <div>
-                    <h1 class="text-4xl font-bold text-gray-900 mb-2" style="font-family: 'Playfair Display', serif;">Owner Dashboard</h1>
-                    <p class="text-gray-600">Manage your properties and track performance</p>
-                </div>
-                <button class="btn-primary text-white px-6 py-3 rounded-lg font-semibold">
-                    + Add Property
-                </button>
+            <div class="text-center text-white">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4" style="font-family: 'Playfair Display', serif;">Owner Dashboard</h1>
+                <p class="text-xl opacity-90">Manage your properties and track performance</p>
             </div>
         </div>
     </section>
 
     <!-- Dashboard Content -->
-    <section class="py-12">
+    <section class="pb-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Stats Cards -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                <div class="dashboard-card bg-white rounded-lg p-6 shadow-md">
+                <div class="dashboard-card content-card rounded-2xl p-6 border border-white/20">
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-sm text-gray-600">Total Properties</p>
@@ -87,7 +97,7 @@
                         <div class="text-2xl">🏠</div>
                     </div>
                 </div>
-                <div class="dashboard-card bg-white rounded-lg p-6 shadow-md">
+                <div class="dashboard-card content-card rounded-2xl p-6 border border-white/20">
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-sm text-gray-600">Active Listings</p>
@@ -96,7 +106,7 @@
                         <div class="text-2xl">✅</div>
                     </div>
                 </div>
-                <div class="dashboard-card bg-white rounded-lg p-6 shadow-md">
+                <div class="dashboard-card content-card rounded-2xl p-6 border border-white/20">
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-sm text-gray-600">Monthly Views</p>
@@ -105,7 +115,7 @@
                         <div class="text-2xl">👁️</div>
                     </div>
                 </div>
-                <div class="dashboard-card bg-white rounded-lg p-6 shadow-md">
+                <div class="dashboard-card content-card rounded-2xl p-6 border border-white/20">
                     <div class="flex items-center justify-between">
                         <div>
                             <p class="text-sm text-gray-600">Monthly Earnings</p>
@@ -117,9 +127,14 @@
             </div>
 
             <!-- Properties Table -->
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                <div class="px-6 py-4 border-b">
-                    <h3 class="text-xl font-semibold">My Properties</h3>
+            <div class="content-card rounded-2xl border border-white/20 overflow-hidden">
+                <div class="px-6 py-4 border-b border-gray-200">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-xl font-semibold text-gray-900">My Properties</h3>
+                        <button class="btn-primary text-white px-4 py-2 rounded-lg font-semibold">
+                            + Add Property
+                        </button>
+                    </div>
                 </div>
                 <div class="overflow-x-auto">
                     <table class="w-full">
@@ -135,11 +150,11 @@
                         <tbody class="divide-y divide-gray-200">
                             <tr>
                                 <td class="px-6 py-4">
-                                    <div class="font-medium">Modern Downtown Apartment</div>
+                                    <div class="font-medium text-gray-900">Modern Downtown Apartment</div>
                                     <div class="text-sm text-gray-500">Downtown, NY</div>
                                 </td>
-                                <td class="px-6 py-4">Apartment</td>
-                                <td class="px-6 py-4 font-semibold">$2,500</td>
+                                <td class="px-6 py-4 text-gray-700">Apartment</td>
+                                <td class="px-6 py-4 font-semibold text-gray-900">$2,500</td>
                                 <td class="px-6 py-4">
                                     <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">Active</span>
                                 </td>
@@ -149,11 +164,11 @@
                             </tr>
                             <tr>
                                 <td class="px-6 py-4">
-                                    <div class="font-medium">Luxury Family Home</div>
+                                    <div class="font-medium text-gray-900">Luxury Family Home</div>
                                     <div class="text-sm text-gray-500">Suburbs, NY</div>
                                 </td>
-                                <td class="px-6 py-4">House</td>
-                                <td class="px-6 py-4 font-semibold">$3,200</td>
+                                <td class="px-6 py-4 text-gray-700">House</td>
+                                <td class="px-6 py-4 font-semibold text-gray-900">$3,200</td>
                                 <td class="px-6 py-4">
                                     <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">Active</span>
                                 </td>
