@@ -25,14 +25,19 @@
         .hero-bg {
             background: 
                 linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-                url('hero-bg.png');
+                url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1973&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
         
         .page-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1973&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             min-height: 100vh;
         }
         
@@ -47,6 +52,27 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             font-weight: 700;
+        }
+        
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            text-shadow: 
+                2px 2px 4px rgba(0, 0, 0, 0.8),
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
+            color: white;
+        }
+        
+        .hero-subtitle {
+            text-shadow: 
+                1px 1px 2px rgba(0, 0, 0, 0.8),
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
+            color: white;
         }
         
         .property-card {
@@ -117,10 +143,10 @@
     <!-- Hero Section -->
     <section class="hero-bg min-h-screen flex items-center justify-center pt-16 text-white">
         <div class="text-center px-4 max-w-6xl mx-auto">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6" style="font-family: 'Playfair Display', serif;">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 hero-title">
                 Find Your Perfect Home
             </h1>
-            <p class="text-xl md:text-2xl mb-12 opacity-90 max-w-3xl mx-auto">
+            <p class="text-xl md:text-2xl mb-12 opacity-90 max-w-3xl mx-auto hero-subtitle">
                 Discover amazing rental properties in your desired location. From cozy apartments to luxury homes, we have it all.
             </p>
             
